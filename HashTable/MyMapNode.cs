@@ -56,7 +56,28 @@ namespace HashTable
             return linkedList;
         }
 
-       
+        public void FreqOfWords(string[] arr, int arrLength)
+        {
+            bool[] visited = new bool[arrLength];
+            for (int i = 0; i < arrLength; i++)
+            {
+                if (visited[i] == true)
+                {
+                    continue;
+                }
+
+                int count = 1;
+                for (int j = i + 1; j < arrLength; j++)
+                {
+                    if (arr[i] == arr[j])
+                    {
+                        visited[j] = true;
+                        count++;
+                    }
+                }
+                Console.WriteLine(arr[i] + " => repeated " + count + " times ");
+            }
+        }
     }
 
     public struct KeyValue<K, V>
